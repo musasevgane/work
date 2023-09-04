@@ -1,12 +1,12 @@
 name: Auto add
 
-# on:
-#   schedule:
-#     - cron: "0 */11 * * *"
-
 on:
-  - pull_request
-  - push
+  schedule:
+    - cron: "0 */11 * * *"
+
+# on:
+#   - pull_request
+#   - push
 
   
 jobs:
