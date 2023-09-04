@@ -1,9 +1,14 @@
 name: Auto add
 
-on:
-  schedule:
-    - cron: "0 */11 * * *"
+# on:
+#   schedule:
+#     - cron: "0 */11 * * *"
 
+on:
+  - pull_request
+  - push
+
+  
 jobs:
   add_text_file:
     runs-on: ubuntu-latest
