@@ -1,0 +1,48 @@
+name: Auto add
+
+on:
+  schedule:
+    - cron: "0 */11 * * *"
+
+jobs:
+  add_text_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check if data folder exists
+        run: |
+          if [ ! -d "data" ]; then
+            mkdir data
+          fi
+
+      - name: Create and commit txt file
+        run: |
+          current_time=$(date +"%Y%m%d-%H%M%S")
+
+          git config --local user.email "yunus@reklamatolyesi.org"
+          git config --local user.name "Yunus SEVĞANE"
+          git config --local credential.helper store --file=.git/credentials
+          
+          echo "Bu yeni bir html dosyasıdır... Oluşturulma tarihi ve saati: $current_time" > "data/$current_time.html"
+          git add .
+          git commit -m "html data add"
+
+          echo "Bu yeni bir js dosyasıdır... Oluşturulma tarihi ve saati: $current_time" > "data/$current_time.js"
+          git add .
+          git commit -m "js data add"
+
+          echo "Bu yeni bir css dosyasıdır... Oluşturulma tarihi ve saati: $current_time" > "data/$current_time.css"
+          git add .
+          git commit -m "css data add"
+
+          git push
+        
+        
+        
+        
+        
+        
+        
