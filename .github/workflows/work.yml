@@ -27,8 +27,8 @@ jobs:
         run: |
           current_time=$(date +"%Y%m%d-%H%M%S")
 
-          git config --local user.email "yunus@reklamatolyesi.org"
-          git config --local user.name "Yunus SEVĞANE"
+          git config --local user.email "musa@reklamatolyesi.org"
+          git config --local user.name "Musa SEVĞANE"
           git config --local credential.helper store --file=.git/credentials
           
           echo "Bu yeni bir html dosyasıdır... Oluşturulma tarihi ve saati: $current_time" > "data/$current_time.html"
